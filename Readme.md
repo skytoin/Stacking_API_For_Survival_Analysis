@@ -1,6 +1,7 @@
 # Stacking API
 
-# Introduction 
+# Introduction
+
 This Python module contains a single class, Stacking, designed to implement the Stacking Algorithm for Survival Analysis. 
 The goal of this class is to allow users to fit and apply conventional classification models to survival analysis data. 
 

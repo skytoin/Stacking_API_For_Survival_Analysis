@@ -77,31 +77,38 @@ The module does not require any special installation steps. Simply import the mo
 The following is an example of how to use this class.
 
 #first example
+
 from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
 #Initialize Stacking instance
+
 stacking = Stacking()
 
 #Generate some random data
+
 X = np.random.rand(300, 3)
 y = np.random.randint(0, 10, size=300)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 #Fit the model
+
 rf_model = RandomForestClassifier()
 stacking.fit(X_train, y_train, rf_model)
 
 #Make predictions
+
 predictions = stacking.predict(X_test, y_test)
 
 #Predict probabilities
+
 prob_predictions = stacking.predict_proba(X_test, y_test)
 
 #Build survival curve
+
 new_observation = X_test[0]
 stacking.build_survival_curve(new_observation)
 
@@ -119,33 +126,40 @@ from tensorflow.keras import Sequential
 from tensorflow.keras.optimizers import Adam
 
 #Initialize Stacking instance
+
 stacking = Stacking()
 
 #Generate some random data
+
 X = np.random.rand(300, 3)
 y = np.random.randint(0, 10, size=300)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 #Fit the model
+
 model = Sequential([tf.keras.layers.Dense(32,  activation='relu'),
                                tf.keras.layers.Dense(16, activation='relu'),
                                tf.keras.layers.Dense(1, activation='sigmoid')])
 
 #you have to compile the model before inputing it in Stacking instance
+
 model.compile(loss=tf.keras.losses.binary_crossentropy,
                          optimizer=Adam(),
                          metrics=['accuracy'])
 
 #training parameters
+
 fit_params = {'epochs': 10, 'verbose': 0}
 stacking.fit(X_train, y_train, model)
 
 
 #Make predictions
+
 predictions = stacking.predict(X_test, y_test)
 
 #Build survival curve
+
 new_observation = X_test[0]
 stacking.build_survival_curve(new_observation)
 

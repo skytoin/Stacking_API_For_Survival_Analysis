@@ -1,4 +1,4 @@
-# Stacking API
+## Stacking API
 
 # Introduction
 

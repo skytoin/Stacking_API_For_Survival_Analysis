@@ -1,4 +1,4 @@
-Stacking API
+# Stacking API
 
 Introduction 
 This Python module contains a single class, Stacking, designed to implement the Stacking Algorithm for Survival Analysis. 
